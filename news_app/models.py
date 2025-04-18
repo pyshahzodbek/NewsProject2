@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 
@@ -82,10 +83,21 @@ class News(models.Model):
     objects = models.Manager()  # Default manager
     published = PublishedManager()  # Custom manager
 
-    def __str__(self):
-        return self.title
 
     class Meta:
         ordering = ["-publish_time"]
 
+    def __str__(self):
+            return self.title
 
+
+    def get_absolute_url(self):
+             return reverse("news_detail_page", args=[self.slug])
+
+class Contact(models.Model):
+    name=models.CharField(max_length=150)
+    email=models.EmailField(max_length=150)
+    message=models.TextField()
+
+    def __str__(self):
+        return self.email

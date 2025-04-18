@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.template.defaultfilters import title
 
-from .models import News,Category
+from .models import News,Category,Contact
 
 # Register your models here.
 @admin.register(News)
@@ -17,3 +17,5 @@ class NewsAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id','name']
+
+admin.site.register(Contact)

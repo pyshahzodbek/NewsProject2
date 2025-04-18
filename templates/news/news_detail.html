@@ -1,12 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>News detail page </title>
-</head>
-<body>
-<h1>{{news.title}}</h1>
-<p>Published date:{{news.publish_time}}</p>
-<p>{{name.body | linebreaks}}</p>
-</body>
-</html>
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} {{ news.title }} {% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <h2 class="fw-bold mb-3" style="line-height: 1.4;">{{ news.title }}</h2>
+    <p class="text-muted mb-4">
+        🕒 {{ news.publish_time|date:"F d, Y, g:i a" }}
+    </p>
+
+    <div class="mb-4">
+        <img src="{{ news.image.url }}" alt="{{ news.title }}"
+             class="img-fluid rounded shadow"
+             style="max-height: 500px; width: 100%; object-fit: cover;">
+    </div>
+
+    <div class="fs-5" style="line-height: 1.8;">
+        {{ news.body|linebreaks }}
+    </div>
+</div>
+{% endblock content %}

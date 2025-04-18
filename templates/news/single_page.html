@@ -41,7 +41,7 @@
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
-          <div class="logo_area"><a href="../index.html"class="logo"><img src="{% static 'images/logo.jpg' %}" alt=""></a></div>
+          <div class="logo_area"><a href="../index.html" class="logo"><img src="{% static 'images/logo.jpg' %}" alt=""></a></div>
           <div class="add_banner"><a href="#"><img src="{% static 'images/addbanner_728x90_V1.jpg' %}" alt=""></a></div>
         </div>
       </div>
@@ -265,11 +265,10 @@
           <div class="single_sidebar wow fadeInDown">
             <h2><span>Category Archive</span></h2>
             <select class="catgArchive">
-              <option>Select Category</option>
-              <option>Life styles</option>
-              <option>Sports</option>
-              <option>Technology</option>
-              <option>Treads</option>
+              <option>Kategoriyani tanlang </option>
+              {% for kategoriya in categories %}
+              <option>{{ kategoriya.name }}</option>
+              {% endfor %}
             </select>
           </div>
           <div class="single_sidebar wow fadeInDown">

@@ -1,0 +1,32 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} Mahalliy xabarlar {% endblock title %}
+
+{% block content %}
+<div class="container mt-5">  <!-- mt-5: Latest News dan pastroqqa tushirish uchun -->
+    {% for news in sport_yangiliklar %}
+    <div class="row mb-4 p-2 border-bottom align-items-center">
+        <div class="col-md-3 col-sm-4">
+           <img src="{{ news.image.url }}" alt="{{ news.title }}"
+     class="img-fluid rounded"
+     style="width: 100%; height: 200px; object-fit: cover;">
+
+        </div>
+        <div class="col-md-9 col-sm-8">
+            <small class="text-muted d-block mb-1">
+                📅 {{ news.created_time |date:"d.m.Y H:i" }}
+            </small>
+            <h5 class="mt-1 mb-1">
+                <a href="{% url 'news_detail_page' news.slug %}"
+                   class="text-dark text-decoration-none">
+                    {{ news.title }}
+                </a>
+            </h5>
+        </div>
+    </div>
+    {% empty %}
+    <p>Hozircha sport yangiliklar mavjud emas.</p>
+    {% endfor %}
+</div>
+{% endblock content %}
