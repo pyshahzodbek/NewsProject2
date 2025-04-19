@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import MEDIA_URL, MEDIA_ROOT, STATICFILES_DIRS, STATIC_ROOT, STATICFILES_FINDERS
+from django.conf.global_settings import MEDIA_URL, MEDIA_ROOT, STATICFILES_DIRS, STATIC_ROOT, STATICFILES_FINDERS, \
+    LOGIN_REDIRECT_URL
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accaunts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,3 +135,5 @@ MEDIA_ROOT=BASE_DIR/'media/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL='home_page'
+LOGOUT_REDIRECT_URL = '/accounts/logout/'

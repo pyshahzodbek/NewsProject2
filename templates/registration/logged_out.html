@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} Logout sahifasi {% endblock title %}
+
+{% block content %}
+    <h2> Log Out</h2>
+<form method="post" action="{% url 'logout' %}" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+</form>
+    <p>Siz veb saytdan chiqdingiz <a href="{% url 'login' %}"> Qaytadan kirish</a> </p>
+
+
+{% endblock content %}
