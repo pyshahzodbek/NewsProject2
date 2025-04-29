@@ -4,12 +4,8 @@
 {% block title %} Logout sahifasi {% endblock title %}
 
 {% block content %}
-    <h2> Log Out</h2>
-<form method="post" action="{% url 'logout' %}" style="display: inline;">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger btn-sm">Logout</button>
-</form>
-    <p>Siz veb saytdan chiqdingiz <a href="{% url 'login' %}"> Qaytadan kirish</a> </p>
-
-
+    <h2>Hisobdan chiqdingiz</h2>
+    <p>Siz tizimdan muvaffaqiyatli chiqdingiz.</p>
+    <a href="{% url 'login' %}" style="color: green">Qaytadan kirish</a>
 {% endblock content %}
+

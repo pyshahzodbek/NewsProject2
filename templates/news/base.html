@@ -37,9 +37,9 @@
           </div>
           <div class="header_top_right">
             {% if request.user.is_authenticated %}
-            <p> <a href="{% url 'user_profile' %}">Mening profilm</a></p>
+            <p> <a href="{% url 'user_profile' %}" style="color: yellow">Mening profilm</a></p>
             {% else %}
-            <p><a href="{% url 'login' %} " class="yellow-link"> Sayitga kirish </a></p>
+            <p><a href="{% url 'login' %} " style="color: yellow"> Sayitga kirish </a></p>
             {% endif%}
             <p>{% now " jS F Y H:i " %}</p>
           </div>

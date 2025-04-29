@@ -6,6 +6,7 @@
 {% block content %}
     <h2> Veb sayitga kirish uchun - login</h2>
     <p> Iltimos, sayitga kirish uchun quyidagi formani to'ldiring!</p>
+    <h5>Agar parolingizni unitgan bo'lsangiz, uni <a href="{% url 'password_reset' %}">tiklang</a></h5>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

@@ -4,12 +4,16 @@
 
 {% block content %}
     <h3>Xush kelibsiz {{ user.username }}</h3>
+    <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Chiqish</button>
+    </form>
+
     <h2>Siz haqingizda ma'lumotlar</h2>
     <label>Username:</label> <input value="{{ user.username}}" readonly placeholder="Kiritilmagan"><br>
     <label>Emailingiz:</label> <input value="{{ user.email}}" readonly placeholder="Kiritilmagan"><br>
     <label>Ismingiz:</label> <input value="{{ user.first_name}}" readonly placeholder="Kiritilmagan"><br>
     <label>Familyangiz:</label> <input value="{{ user.last_name}}" readonly placeholder="Kiritilmagan"><br>
-
-    <h4>Parolni almashtirish</h4>
+    <h4><a href="{% url 'password_change' %}" style="color: red">Parolni o'zgartirish</a></h4>
 
 {% endblock content %}
